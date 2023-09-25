@@ -8,6 +8,7 @@ import { getPriceGold } from "../../redux/reducer/PriceSlice";
 const GoldScreen = () => {
   const dispatch = useDispatch();
   const { priceGold } = useSelector((state) => state.PriceSlice);
+
   useEffect(() => {
     dispatch(getPriceGold());
   }, []);

@@ -39,7 +39,7 @@ const ProductColum = ({ data }) => {
       <View style={{ flex: 1.5, padding: 15 }}>
         <Text
           style={{
-            fontSize: 18,
+            fontSize: 16,
             color: COLOR.primary,
             fontWeight: "bold",
             marginBottom: 12,
@@ -48,11 +48,25 @@ const ProductColum = ({ data }) => {
         >
           {data?.title}
         </Text>
-        <View style={{ flexDirection: "row" }}>
-          <AntDesign name="clockcircleo" size={18} color="black" />
-          <Text style={{ marginLeft: 5 }}>
-            {moment(data?.created_at).format("DD/MM/YYYY, h:mm:ss a")}
-          </Text>
+        <View>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <AntDesign name="calendar" size={18} color="black" />
+            <Text style={{ marginLeft: 10 }}>
+              {moment(data?.created_at).format("DD/MM/YYYY")}
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginTop: 10,
+            }}
+          >
+            <AntDesign name="clockcircleo" size={18} color="black" />
+            <Text style={{ marginLeft: 10 }}>
+              {moment(data?.created_at).format(" h:mm:ss a")}
+            </Text>
+          </View>
         </View>
       </View>
     </TouchableOpacity>

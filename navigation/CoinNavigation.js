@@ -8,6 +8,7 @@ import { COLOR } from "../constants/color";
 import IconDrawer from "../component/IconDrawer";
 import GoldScreen from "../screens/Gold/GoldScreen";
 import CoinScreen from "../screens/Coin/CoinScreen";
+import IconSetting from "../component/IconSetting";
 
 const CoinNavigation = () => {
   const Stack = createStackNavigator();

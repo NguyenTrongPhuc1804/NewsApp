@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "../../service/baseService";
+import { hiddenLoading, showLoading } from "./LoadingSlice";
 
 const initialState = {
   priceGold: [],
@@ -21,21 +22,33 @@ export const PriceSlice = createSlice({
     });
   },
 });
-export const getPriceGold = createAsyncThunk("/rice/getPriceGold", async () => {
-  try {
-    const { data } = await api.get(`/get-gold`);
-    return data;
-  } catch (err) {
-    console.log(err, "error");
-  }
-});
-export const getPriceGCoin = createAsyncThunk(
-  "/rice/getPriceGCoin",
-  async () => {
+export const getPriceGold = createAsyncThunk(
+  "/rice/getPriceGold",
+  async (data, { dispatch }) => {
+    dispatch(showLoading());
     try {
-      const { data } = await api.get(`/get-coin`);
+      const { data } = await api.get(`/get-gold`);
+      dispatch(hiddenLoading());
       return data;
     } catch (err) {
+      console.log(err, "error");
+      dispatch(hiddenLoading());
+    }
+  }
+);
+export const getPriceGCoin = createAsyncThunk(
+  "/rice/getPriceGCoin",
+  async (data, { dispatch }) => {
+    dispatch(showLoading());
+
+    try {
+      const { data } = await api.get(`/get-coin`);
+      dispatch(hiddenLoading());
+
+      return data;
+    } catch (err) {
+      dispatch(hiddenLoading());
+
       console.log(err, "error");
     }
   }

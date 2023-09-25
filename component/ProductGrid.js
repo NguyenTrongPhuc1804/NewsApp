@@ -8,7 +8,13 @@ const ProductGrid = ({ data }) => {
   const navigate = useNavigation();
   useEffect(() => {}, [data]);
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => {
+        navigate.push("ProductDetailScreen", {
+          name: data.title,
+          data: data,
+        });
+      }}
       style={{
         flex: 1,
         backgroundColor: COLOR.second,
@@ -56,7 +62,7 @@ const ProductGrid = ({ data }) => {
           </Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

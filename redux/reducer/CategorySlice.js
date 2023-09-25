@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "../../service/baseService";
+import { hiddenLoading, showLoading } from "./LoadingSlice";
 const initialState = {
   isLoading: false,
   hello: 1,
@@ -30,7 +31,8 @@ export const CategorySlice = createSlice({
 });
 export const getCategoryApi = createAsyncThunk(
   "/category/getAll",
-  async ({ limit = 10, offset = 0, ...rest }) => {
+  async ({ limit = 10, offset = 0, ...rest }, { dispatch }) => {
+    dispatch(showLoading());
     try {
       const { data } = await api.get("/categories_news", {
         params: {
@@ -39,7 +41,7 @@ export const getCategoryApi = createAsyncThunk(
           ...rest,
         },
       });
-      console.log("asd", data);
+      dispatch(hiddenLoading());
 
       return data;
     } catch (err) {

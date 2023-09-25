@@ -11,6 +11,7 @@ import ProductDetailScreen from "../screens/ProductDetail/ProductDetailScreen";
 import GoldScreen from "../screens/Gold/GoldScreen";
 import CategorySetting from "../screens/CategorySetting/CategorySetting";
 import SettingScreen from "../screens/Setting/SettingScreen";
+import IconSetting from "../component/IconSetting";
 const Stack = createStackNavigator();
 const HomeNavigation = () => {
   return (
@@ -31,6 +32,9 @@ const HomeNavigation = () => {
           headerLeft: () => {
             return <IconDrawer />;
           },
+          headerRight: () => {
+            return <IconSetting />;
+          },
         }}
       />
       <Stack.Screen
@@ -42,6 +46,19 @@ const HomeNavigation = () => {
         name="ProductDetailScreen"
         component={ProductDetailScreen}
         options={({ route }) => ({ title: route.params.name })}
+      />
+      <Stack.Screen
+        name="SettingScreen"
+        component={SettingScreen}
+        options={{
+          title: "Cài đặt",
+          headerLeft: () => {
+            return <IconDrawer />;
+          },
+          headerRight: () => {
+            return <IconSetting />;
+          },
+        }}
       />
     </Stack.Navigator>
   );

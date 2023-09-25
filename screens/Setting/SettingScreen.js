@@ -1,11 +1,16 @@
 import { View, Text, Switch, FlatList } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CategoryToggle from "../../component/CategoryToggle";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategoryApi } from "../../redux/reducer/CategorySlice";
 
 const SettingScreen = () => {
-  const { listCategory } = useSelector((state) => state.CategorySlice);
+  const dispatch = useDispatch();
 
+  const { listCategory } = useSelector((state) => state.CategorySlice);
+  useEffect(() => {
+    dispatch(getCategoryApi({}));
+  }, []);
   return (
     <View style={{ flex: 1, padding: 20 }}>
       <View

@@ -1,4 +1,4 @@
 import axios from "axios";
 export const api = axios.create({
-  baseURL: "https://apiforlearning.zendvn.com/api/",
+  baseURL: "http://apiforlearning.zendvn.com/api/",
 });

@@ -7,12 +7,14 @@ import { Feather } from "@expo/vector-icons";
 import { COLOR } from "../constants/color";
 import IconDrawer from "../component/IconDrawer";
 import SettingScreen from "../screens/Setting/SettingScreen";
+import IconSetting from "../component/IconSetting";
 
 const SettingNavigation = () => {
   const SettingStack = createStackNavigator();
 
   return (
     <SettingStack.Navigator
+      initialRouteName="SettingScreen"
       screenOptions={{
         headerStyle: {
           backgroundColor: COLOR.primary,
@@ -27,6 +29,9 @@ const SettingNavigation = () => {
           title: "Cài đặt",
           headerLeft: () => {
             return <IconDrawer />;
+          },
+          headerRight: () => {
+            return <IconSetting />;
           },
         }}
       />

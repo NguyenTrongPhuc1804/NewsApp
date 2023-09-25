@@ -16,7 +16,7 @@ const ProductDetailScreen = () => {
           }}
         />
       </View>
-      <View style={{ flex: 3, padding: 15, width: "100%", height: "100%" }}>
+      <View style={{ flex: 3, padding: 5, width: "100%", height: "100%" }}>
         <View
           style={{
             padding: 10,

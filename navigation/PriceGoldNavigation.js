@@ -7,6 +7,7 @@ import DScreen from "../screens/DScreen/DScreen";
 import { Feather } from "@expo/vector-icons";
 import IconDrawer from "../component/IconDrawer";
 import GoldScreen from "../screens/Gold/GoldScreen";
+import IconSetting from "../component/IconSetting";
 
 const PriceGoldNavigation = () => {
   const Stack = createStackNavigator();
